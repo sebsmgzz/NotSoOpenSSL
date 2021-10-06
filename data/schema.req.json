@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "Certificate sign request",
+    "description": "A request to sign a certificate.",
+    "type": "object",
+    "required": [ "subject" ],
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type":"string",
+            "description": "The schema to verify this document against."
+        },
+        "subject": {
+            "type": "object",
+            "description": "The subject containing the underlying data of the certificate.",
+            "required": [ "countryCode", "state", "locality", "organization", "organizationalUnit", "commonName", "emailAddress" ],
+            "additionalProperties": false,
+            "properties": {
+                "countryCode": {
+                    "type": "string",
+                    "description": ""
+                },
+                "state": {
+                    "type": "string",
+                    "description": ""
+                },
+                "locality": {
+                    "type": "string",
+                    "description": ""
+                },
+                "organization": {
+                    "type": "string",
+                    "description": ""
+                },
+                "organizationalUnit": {
+                    "type": "string",
+                    "description": ""
+                },
+                "commonName": {
+                    "type": "string",
+                    "description": ""
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "signatures": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [ "to", "days", "at" ],
+                "properties": {
+                    "to": {
+                        "type": "string",
+                        "description": "The name of the certificate to sign."
+                    },
+                    "days": {
+                        "type": "integer",
+                        "description": "The amount of days the signature will be valid."
+                    },
+                    "at": {
+                        "type": "integer",
+                        "description": "The epoch representing the day the signature happened."
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+# Ignore everything under data
+/data/*
+
+# Except for schemas
+!/data/schema*
